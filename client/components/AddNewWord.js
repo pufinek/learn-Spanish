@@ -1,11 +1,6 @@
 import React from 'react';
 
 
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as Actions from '../actions/dictionary';
-
-
 class AddNewWord extends React.Component{
 
 addWord(e){
@@ -15,20 +10,22 @@ addWord(e){
         meaningCZ: this.cz.value,
         meaningEN: this.en.value,
         meaningES: this.es.value,
-        //type: this.type.value,
+        type: this.type.value,
         lesson: this.lesson.value,
         theme: this.theme.value,
-        //genus: this.genus.value,
+        genus: this.genus.value,
         id: 123963
     }
+
+    //store.dispatch({type:'ADD_NEW_WORD', newWord});
     console.log(newWord);
-    //Actions.addNewWord(newWord);
-    Actions.addNewWord(newWord);
-    console.log("done");
+    //this.props.addNewWord(newWord);
+    //this.props.actions.pokus();
+
 }
 
 render(){
-        console.log(Actions);
+
     const optionType = Object
 					.keys(this.props.settings.types)
 					.map((type) => {
@@ -64,14 +61,14 @@ render(){
 
                 <div className="row">
                     <label title="rod">Type</label>
-                    <select name="type" placeholder="Type" required defaultValue={this.props.settings.types[1]} style={{width: '150px'}} >
+                    <select name="type" ref={(input) => this.type = input}  placeholder="Type" required defaultValue={this.props.settings.types[1]} style={{width: '150px'}} >
                         {optionType}
                     </select> 
                 </div>
                     
                 <div className="row">
                     <label title="rod">Genus</label>
-                    <select name="genus" placeholder="Genus" defaultValue="" style={{width: '150px'}}  >
+                    <select name="genus" ref={(input) => this.genus = input}  placeholder="Genus" defaultValue="" style={{width: '150px'}}  >
                         <option value="">--</option>
 				        <option value="m">M</option>
                         <option value="f">F</option>
@@ -88,32 +85,7 @@ render(){
     )
 }
 }
-/**
- * Map the state to props for his children
- */
-const mapStateToProps = (state) => {
-    return{
-        settings: state.settings
-    };
-};
-
-/**
- * Map the actions to props
- */
-const mapDispatchToProps = (dispatch) => {
-    Actions: bindActionCreators(Actions, dispatch)
-    return{
-        Actions
-    }
-    
-};
 
 
 
-export default connect(
-  mapStateToProps, mapDispatchToProps
-)(AddNewWord);
-//export default Dictionary;
-
-
-//export default AddNewWord;
+export default AddNewWord;

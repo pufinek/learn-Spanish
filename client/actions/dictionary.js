@@ -5,21 +5,25 @@
 export const UPDATE_WORD = 'UPDATE_WORD';
 export const ADD_NEW_WORD = 'ADD_NEW_WORD';
 export const REMOVE_WORD = 'REMOVE_WORD';
+export const POKUS = 'POKUS';
 
 export function addNewWord (newWord) {
     type: ADD_NEW_WORD,
     newWord
 }
 
-//i is order of word in state, not wordId
-export function updateWord (updatedWord, i) {
+export function updateWord (updatedWord, index) {
     type: UPDATE_WORD,
-    i,
+    index,
     updatedWord 
 }
 
-export function removeWord (word, i) {
+
+export function removeWord (index) {
     type: REMOVE_WORD,
-    i,
-    word 
+    index
+};
+
+export function pokus () {
+    type: POKUS
 };

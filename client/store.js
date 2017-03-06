@@ -2,6 +2,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router'
 import rootReducer from './reducers/index';
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
+
 import comments from './data/comments';
 import posts from './data/posts';
 import settings from './data/settings';
@@ -22,13 +25,53 @@ const defaultState = {
   settings
 };
 
+const loggerMiddleware = createLogger();
+
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-const store = createStore(rootReducer, defaultState, enhancers);
+const logger = (store) => (next) => (action) => {
+  console.log("action fired", action);
+  next(action);
+}
 
-// we export history because we need it in `reduxstagram.js` to feed into <Router>
+
+
+const middleware = applyMiddleware(
+  logger, 
+  thunkMiddleware,// lets us dispatch() functions
+  loggerMiddleware, // neat middleware that logs actions
+  //enhancers,
+
+
+  );
+const store = createStore(rootReducer, defaultState, middleware);
+
+//const store = createStore(rootReducer, defaultState, enhancers);
+
+store.subscribe(() => {
+  console.log("store changed", store.getState());
+})
+
+
+
+/*store.dispatch({type:'POKUS'});
+const pokusWord ={
+            "meaningCZ": ["španělština", "Španěl"],
+            "meaningES": "español",
+            "meaningEN": "Spanish",
+            "type": "type6",
+            "genus": "m",
+            "theme": "",
+            "lesson": 1,
+            "id":111
+        };
+store.dispatch({type:'ADD_NEW_WORD', newWord:pokusWord});
+store.dispatch({type:'REMOVE_WORD', index:3 });
+store.dispatch({type:'UPDATE_WORD', index:1, updatedWord:pokusWord })*/
+
+// we export history because we need it in `spanish.js` to feed into <Router>
 export const history = syncHistoryWithStore(browserHistory, store);
 
 /*
