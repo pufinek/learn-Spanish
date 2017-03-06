@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router';
 
 class Word extends React.Component{
@@ -10,11 +11,13 @@ class Word extends React.Component{
             meaning +=", "+word.meaningCZ[i];
         }
 
+        const playerUrl = "http://audio1.spanishdict.com/audio?lang=es&text="+word.meaningES;
+
         return(
 
             <div key={word.key} className="word" >  
                 <div className="word-control">
-                    <span className="lnr lnr-volume-high"></span>
+                    <ReactPlayer className="spanish-player" url={playerUrl} controls />
                      <Link to={`/view/${word.id}`}>
                         <span className="lnr lnr-cog"></span>
                     </Link>

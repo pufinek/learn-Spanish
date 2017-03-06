@@ -4,6 +4,8 @@
 
 body
   background offwhite
+  font-size 13px
+
 
 .dictionary-grid, .word-detail
   display flex
@@ -22,7 +24,6 @@ body
   box-shadow 0 0 0 5px rgba(0,0,0,0.03);
   position relative
   font-size 13px
-  position relative
 
   .meaning
     display block
@@ -31,9 +32,10 @@ body
     strong
         padding-right 20px
   .lnr
-    font-size 20px
+    font-size 24px
     padding-right 15px
     text-decoration none
+    line-height 30px
     &:hover
       color blue
     
@@ -48,11 +50,46 @@ body
        &:hover
          text-decoration none
 
+.add-new-word
+  display block
+  width 100%
+  text-align center
+  margin-bottom 30px
+  .add-form
+    margin 0 auto
+    text-align left
+    max-width 50%
+    padding 3rem 2rem 2rem
+    background white
+    box-shadow 0 0 0 5px rgba(0,0,0,0.03);
+    position relative
+    font-size 13px
+    border 1px solid lightgray
+    input
+      width calc(78% - 40px)
+
 
 .word-detail
 
   .word, .box
     font-size:16px
+  .lnr-cog
+    display none
+
+
+.spanish-player
+   width 65px !important
+   height 30px !important
+   margin-right 15px
+   float left
+
+.row
+  margin-bottom 15px
+  label
+    width 20%
+    display inline-block
+    min-width 130px
+
 
       
 
