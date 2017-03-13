@@ -1,8 +1,11 @@
 import React from 'react';
 import Word from './Word';
 import ReactPlayer from 'react-player';
+import {convertArrayToString} from '../helpers/dictionary';
 
 const WordDetail = React.createClass({
+
+
 
   render() {
     const i = this.props.dictionary.findIndex((word)=> word.id == this.props.params.wordId);
@@ -18,15 +21,28 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
 console.log(moreInfoUrl);         
 
     return (
-      <div  key={i} i={i} className="word-detail">
-        <Word key={i} i={i} word={this.props.dictionary[i]} {...this.props} />
+      <form  key={i} i={i} className="word-detail" onChange={(e) => this.props.actions.updateValue(i,e.target.name, e.target.value )}>
         <div className="box">
             <div className="word-control">
             <a target="_blank" title="spanish dictionary" href={moreInfoUrl}><span className="lnr lnr-question-circle"></span></a>
             </div>
             <div className="row">
+                <label >ES:</label>
+                <input type="text" name="meaningES" ref={(input) => this.meaningES = (input)} value={word.meaningES}/>
+            </div>
+            <div className="row">
+                <label >CZ:</label>
+                <input type="text" name="meaningCZ" placeholder="oddělit významy ; " ref={(input) => this.meaningCZ = (input)} value={convertArrayToString(word.meaningCZ)}/>
+            </div>
+            <div className="row">
+                <label >EN:</label>
+                <input type="text" name="meaningEN" ref={(input) => this.meaningEN = (input)} value={word.meaningEN}/>
+            </div>
+        </div>
+        <div className="box">
+            <div className="row">
                 <label >Lesson:</label>
-                <input type="number" min="1" name="lesson" ref={(input) => this.lesson = (input)} value={word.lesson} />
+                <input type="number" min="1" name="lesson" ref={(input) => this.lesson = (input)} value={word.lesson}/>
             </div>
 
             <div className="row">
@@ -43,23 +59,21 @@ console.log(moreInfoUrl);
 
             <div className="row">
                 <label>Genus: </label>
-                <select name="type" placeholder="Genus" value={word.genus} >
+                <select name="genus" placeholder="Genus" value={word.genus} >
                     <option value="">--</option>
-				    <option value="m">M</option>
-                    <option value="f">F</option>
+				    <option value="el">el</option>
+                    <option value="la">la</option>
                 </select>                
             </div>
 
             <div className="row">
                 
             </div>
-            
-        
-        
+              
             
         </div>
         
-      </div>
+      </form>
     );
   }
 });

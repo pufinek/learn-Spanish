@@ -1,0 +1,11 @@
+[{"id":1,"meaningCZ":"oslava","meaningES":"celebración","meaningEN":"celebration","type":"type1","lesson":1,"theme":"duolingo","genus":"la"},
+{"id":2,"meaningCZ":"zvědavost","meaningES":"curiosidad","meaningEN":"curiosity","type":"type2","lesson":1,"theme":"duolingo","genus":"la"},
+{"id":3,"meaningCZ":"smutný","meaningES":"triste","meaningEN":"sad","type":"type3","lesson":1,"theme":"duolingo","genus":""},
+{"id":4,"meaningCZ":"nervózní","meaningES":"nervioso","meaningEN":"nerves","type":"type4","lesson":1,"theme":"duolingo","genus":""},
+{"id":5,"meaningCZ":"humor, nálada","meaningES":"humor","meaningEN":"humor","type":"type5","lesson":1,"theme":"duolingo","genus":"el"},
+{"id":6,"meaningCZ":"cit, emoce","meaningES":"sentimiento","meaningEN":"","type":"type1","lesson":1,"theme":"duolingo","genus":"el"},
+{"id":7,"meaningCZ":"potěšení, uspokojení","meaningES":"satisfacción","meaningEN":"","type":"type2","lesson":1,"theme":"duolingo","genus":"la"},
+{"id":8,"meaningCZ":"potěšení, požitel","meaningES":"placer","meaningEN":"","type":"type3","lesson":1,"theme":"duolingo","genus":"el"},
+{"id":9,"meaningCZ":"potěšení je na mé straně","meaningES":"El placer es mío.","meaningEN":"","type":"type4","lesson":1,"theme":"duolingo","genus":""},
+{"id":10,"meaningCZ":"přání, touha","meaningES":"deseo","meaningEN":"","type":"type5","lesson":1,"theme":"duolingo","genus":"el"},
+{"id":11,"meaningCZ":"Nemám náladu na jídlo","meaningES":"No estoy de humor para comer.","meaningEN":"","type":"type1","lesson":1,"theme":"duolingo","genus":""}]

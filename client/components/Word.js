@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router';
+import {convertArrayToString} from '../helpers/dictionary';
 
 class Word extends React.Component{
     render(){
     	const word=this.props.word; 
-
-        let meaning = word.meaningCZ[0];
-        for(let i=1; i < word.meaningCZ.length ; i++){
-            meaning +=", "+word.meaningCZ[i];
-        }
-
         const playerUrl = "http://audio1.spanishdict.com/audio?lang=es&text="+word.meaningES;
 
         return(
@@ -23,7 +18,7 @@ class Word extends React.Component{
                     </Link>
                 </div>
                 <span className="meaning" data-language="es"><strong>ES: </strong>{word.meaningES}</span> 
-                <span className="meaning" data-language="cz"><strong>CZ: </strong>{meaning}</span>
+                <span className="meaning" data-language="cz"><strong>CZ: </strong>{convertArrayToString(word.meaningCZ)}</span>
                 <span className="meaning" data-language="en"><strong>EN: </strong>{word.meaningEN}</span> 
 
             </div>

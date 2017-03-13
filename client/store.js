@@ -56,20 +56,21 @@ store.subscribe(() => {
 
 
 
-/*store.dispatch({type:'POKUS'});
+/*store.dispatch({type:'POKUS'});*/
 const pokusWord ={
-            "meaningCZ": ["španělština", "Španěl"],
-            "meaningES": "español",
-            "meaningEN": "Spanish",
-            "type": "type6",
-            "genus": "m",
+            "meaningCZ": ["š", "m"],
+            "meaningES": "esp",
+            "meaningEN": "Spa",
+            "type": "type",
+            "genus": "el",
             "theme": "",
             "lesson": 1,
             "id":111
         };
-store.dispatch({type:'ADD_NEW_WORD', newWord:pokusWord});
+/*store.dispatch({type:'ADD_NEW_WORD', newWord:pokusWord});
 store.dispatch({type:'REMOVE_WORD', index:3 });
 store.dispatch({type:'UPDATE_WORD', index:1, updatedWord:pokusWord })*/
+store.dispatch({type:'UPDATE_VALUE', index:1, name:"meaningES", value:"123456789"});
 
 // we export history because we need it in `spanish.js` to feed into <Router>
 export const history = syncHistoryWithStore(browserHistory, store);

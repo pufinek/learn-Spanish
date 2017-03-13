@@ -14,7 +14,7 @@ const dictionary =[
             "meaningES": "español",
             "meaningEN": "Spanish",
             "type": "type6",
-            "genus": "m",
+            "genus": "el",
             "theme": "",
             "lesson": 1,
             "id":2153286
@@ -24,7 +24,7 @@ const dictionary =[
         "meaningES": "asistencia",
         "meaningEN": "schooling",
         "type": "type6",
-        "genus": "f",
+        "genus": "la",
         "theme": "",
         "lesson": 1,
         "id":35169832

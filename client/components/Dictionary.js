@@ -4,6 +4,7 @@ import Photo from './Photo';
 
 import AddNewWord from './AddNewWord';
 
+
 const Dictionary= React.createClass({
 
   render() {
@@ -11,12 +12,13 @@ const Dictionary= React.createClass({
 
       <div className="dictionary-grid">
         <AddNewWord settings={this.props.settings} actions={this.props.actions}/>
-         
         {
+         
             //this.props.dictionary.map((word,i) => <Word {...this.props} key={i} i={i} word={word} />)
             Object.keys(this.props.dictionary)
                     .map((key => <Word key={key} index={key} word={this.props.dictionary[key]} />))
         }
+
       </div>
     )
 
