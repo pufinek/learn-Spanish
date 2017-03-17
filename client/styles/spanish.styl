@@ -21,7 +21,7 @@ body
   padding 3rem 2rem 2rem
   border 1px solid lightgray
   background white
-  box-shadow 0 0 0 5px rgba(0,0,0,0.03);
+  box-shadow 0 0 0 5px rgba(0,0,0,0.03)
   position relative
   font-size 13px
 
@@ -78,7 +78,7 @@ body
     display none
 
 .spanish-player
-   width 65px !important
+   width 105px !important
    height 30px !important
    margin-right 15px
    float left
@@ -91,8 +91,40 @@ body
     min-width 130px
 
 
-      
 
 
+@media screen and (max-width: 767px)
+  h1
+    font-size 4rem
+  .word, .box
+    flex-basis calc(100% - 2rem)
+    margin: 0 1rem 2rem 1rem
+
+  
+  .add-new-word
+    .add-form
+      max-width 100%
+      min-width 0
+
+ 
+
+@media screen and (max-width: 560px)
+  .word, .box
+    flex-basis calc(100% - 2rem)
+    margin: 0 1rem 2rem 1rem
+
+  .row label
+      min-width 120px
+      .add-new-word
+          .add-form
+            padding 2rem 1rem 4rem
+
+            button
+              position static !important
+              float right
+
+            input
+              width: calc(100% - 130px)
+          
 
 
