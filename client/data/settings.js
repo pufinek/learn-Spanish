@@ -2,55 +2,55 @@ const settings = {
     "soundURL":"http://audio1.spanishdict.com/audio?lang=es&text=",
     "disctionaryURL":"http://www.spanishdict.com/conjugate/",
     "types":[
-    {
-      "name":"abstract",
-      "typeId": "type1"
-    },
-    {
-       "name":"částice",
-      "typeId": "type2"
-    },
-    {
-       "name":"číslovka",
-      "typeId": "type3"
-    },
-    {
-      "name":"fráze",
-      "typeId": "type4"
-    },
-    {
-      "name":"gramatika",
-      "typeId": "type5"
-    },
-    {
-      "name":"podst. jméno",
-      "typeId": "type6"
-    },
-    {
-      "name":"předložka",
-      "typeId": "type7"
-    },
-    {
-      "name":"příd. jméno",
-      "typeId": "type8"
-    },
-    {
-      "name":"příslovce",
-      "typeId": "type9"
-    },
-    {
-      "name":"spojka",
-      "typeId": "type10"
-    },
-    {
-      "name":"zájmeno",
-      "typeId": "type11"
-    },
-    {
-      "name":"sloveso",
-      "typeId": "type12"
-    }
-  ],
+      {
+        "name":"podstatné jméno",
+        "typeId": "type1"
+      },
+      {
+        "name":"přídavné jméno",
+        "typeId": "type2"
+      },
+      {
+        "name":"zájmeno",
+        "typeId": "type3"
+      },
+      {
+        "name":"číslovky",
+        "typeId": "type4"
+      },
+      {
+        "name":"slovesa",
+        "typeId": "type5"
+      },
+      {
+        "name":"příslovce",
+        "typeId": "type6"
+      },
+      {
+        "name":"předložky",
+        "typeId": "type7"
+      },
+      {
+        "name":"spojky",
+        "typeId": "type8"
+      },
+      {
+        "name":"částice",
+        "typeId": "type9"
+      },
+      {
+        "name":"citoslovce",
+        "typeId": "type10"
+      },    
+      {
+        "name":"fráze",
+        "typeId": "type11"
+      },
+      {
+        "name":"gramatika",
+        "typeId": "type12"
+      }   
+  ]
 }
 
 export default settings;

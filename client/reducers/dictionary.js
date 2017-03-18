@@ -16,8 +16,13 @@ function updateValue(array, action){
 
 function dictionary(state = {}, action) {
     switch(action.type) {
+        case 'CHANGE_WORD':
+            console.log(action.payload);
+            return state;
         case 'ADD_NEW_WORD':
             return [...state, action.newWord];
+        case 'RECEIVE_NEWWORD':
+             return [...state, action.payload];
         case 'UPDATE_WORD':
             return [
                  ...state.slice(0, action.index),
@@ -45,9 +50,6 @@ function dictionary(state = {}, action) {
         case 'LOAD_FROM_JSON':
             // return [...state, action.arrayOfNewWords];
               console.log("JSON");
-            return state;
-        case 'POKUS':
-            console.log("pokus");
             return state;
         default:
             return state;

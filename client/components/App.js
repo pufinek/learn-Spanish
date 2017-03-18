@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/dictionary';
 
+//import base from '../base';
 /*
   Components
   This is where the actual interface / view comes into play
@@ -32,12 +33,20 @@ import Main from './Main';
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts,
-    comments : state.comments,
+    //posts: state.posts,
+    //comments : state.comments,
     dictionary: state.dictionary,
     settings:state.settings
   };
 }
+ /*componentWillMount(){
+        this.ref=base.syncState(`vocabulary`, {
+            context: this,
+            state:'vocabulary'
+        });
+ }*/
+
+
 
 /*
   This will bind our actions to dispatch (make the fire-able)
@@ -54,8 +63,7 @@ export function mapDispatchToProps(dispatch) {
   populated with our actions and our state
 
   We're injecting the data at the top level and passing it down, but you can connect() any component to make the actions and the store available to you. 
-*/
- 
+*/ 
 var App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;

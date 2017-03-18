@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as actionCreators from '../actions/dictionary';
+
 
 const Main = React.createClass({
+
+ componentWillMount() {
+   console.log("nacitam z Firebase");
+   this.props.actions.subscribeToVocabulary();
+ },
 
   render() {
     // Then we go ahead and return some JSX

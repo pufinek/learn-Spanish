@@ -5,8 +5,6 @@ import {convertArrayToString} from '../helpers/dictionary';
 
 const WordDetail = React.createClass({
 
-
-
   render() {
     const i = this.props.dictionary.findIndex((word)=> word.id == this.props.params.wordId);
     const word=this.props.dictionary[i];

@@ -12,7 +12,7 @@ class Word extends React.Component{
 
             <div key={word.key} className="word" >  
                 <div className="word-control">
-                    <ReactPlayer className="spanish-player" url={playerUrl} controls />
+                   <ReactPlayer className="spanish-player" url={playerUrl} controls />
                      <Link to={`/view/${word.id}`}>
                         <span className="lnr lnr-cog"></span>
                     </Link>

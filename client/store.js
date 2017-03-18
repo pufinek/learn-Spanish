@@ -5,10 +5,10 @@ import rootReducer from './reducers/index';
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
-import comments from './data/comments';
-import posts from './data/posts';
+//import comments from './data/comments';
+//import posts from './data/posts';
 import settings from './data/settings';
-import dictionary from './data/dictionary';
+//import dictionary from './data/dictionary';
 
 /*
   Store
@@ -19,9 +19,6 @@ import dictionary from './data/dictionary';
 */
 
 const defaultState = {
-  posts,
-  comments,
-  dictionary,
   settings
 };
 
@@ -40,7 +37,7 @@ const logger = (store) => (next) => (action) => {
 
 const middleware = applyMiddleware(
   logger, 
-  thunkMiddleware,// lets us dispatch() functions
+  thunkMiddleware,// lets us dispatch() functions, asynch fce for Firebase
   loggerMiddleware, // neat middleware that logs actions
   //enhancers,
 
@@ -55,22 +52,9 @@ store.subscribe(() => {
 })
 
 
-
-/*store.dispatch({type:'POKUS'});*/
-const pokusWord ={
-            "meaningCZ": ["š", "m"],
-            "meaningES": "esp",
-            "meaningEN": "Spa",
-            "type": "type",
-            "genus": "el",
-            "theme": "",
-            "lesson": 1,
-            "id":111
-        };
 /*store.dispatch({type:'ADD_NEW_WORD', newWord:pokusWord});
 store.dispatch({type:'REMOVE_WORD', index:3 });
 store.dispatch({type:'UPDATE_WORD', index:1, updatedWord:pokusWord })*/
-store.dispatch({type:'UPDATE_VALUE', index:1, name:"meaningES", value:"123456789"});
 
 // we export history because we need it in `spanish.js` to feed into <Router>
 export const history = syncHistoryWithStore(browserHistory, store);
