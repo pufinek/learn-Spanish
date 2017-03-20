@@ -1,5 +1,5 @@
 import React from 'react';
-import * as slovicka from '../SlovickaJSON';
+import slovicka from '../SlovickaJSON';
 import {convertStringToArray} from '../helpers/dictionary';
 
 
@@ -13,9 +13,11 @@ addWord(e){
         meaningEN: this.en.value,
         meaningES: this.es.value,
         type: this.type.value,
-        lesson: this.lesson.value,
-        theme: this.theme.value,
+        //lesson: this.lesson.value,
+        theme: convertStringToArray(this.theme.value),
         genus: this.genus.value,
+        statistic:{ok:0, show:0},
+        favorite:this.favorite.checked,
         id: Date.now()
     }
 
@@ -62,6 +64,7 @@ loadJSON(e){
 
 }
 
+
 render(){
 
     const optionType = Object
@@ -81,7 +84,7 @@ render(){
                 </div>
                 <div className="row">
                     <label htmlFor="cz">Česky (CZ):</label>
-                    <input type="text" required ref={(input) => this.cz = input} id="cz" placeholder="Jednotlivé významy oddělte STŘEDNÍKEM"  defaultValue="" />
+                    <input type="text" required ref={(input) => this.cz = input} id="cz" placeholder="významy odděl STŘEDNÍKEM"  defaultValue="" />
                 </div>
                 <div className="row">
                     <label htmlFor="en">Anglicky (EN):</label>
@@ -90,11 +93,11 @@ render(){
                 <br /><br />
                 <div className="row">
                     <label htmlFor="theme">Téma:</label>
-                    <input type="text" ref={(input) => this.theme = input} id="theme"  defaultValue=""/>
+                    <input type="text" ref={(input) => this.theme = input} id="theme" placeholder="témata odděl STŘEDNÍKEM"  defaultValue=""/>
                 </div>
                 <div className="row">
-                    <label title="lekce">Lekce</label>
-                    <input type="number" min="1" placeholder="?" defaultValue="1"  required ref={(input) => this.lesson = input} style={{width: '150px'}}/>
+                    <label title="favorite">userFavorite</label>
+                    <input type="checkbox" name="favorite" ref={(input) => this.favorite = input} style={{width: '50px'}} />
                 </div>
 
                 <div className="row">
@@ -115,7 +118,7 @@ render(){
 
                 <button type="submit" className="btn btn-success" style={{position: 'absolute', right:'35px', bottom:'35px'}}>Přidat</button>
             </form>
-            <div style={{margin: '20px 0'}}><button type="submit" onClick={() => this.loadWords()}>Nahrát slovíčka ze souboru</button></div>
+            <div style={{margin: '20px 0'}}><button type="submit" onClick={(e) => this.loadJSON(e)}>Nahrát slovíčka ze souboru</button></div>
 
         </div>
 

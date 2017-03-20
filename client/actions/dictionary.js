@@ -10,7 +10,7 @@ const firebaseConfig ={
     databaseURL: "https://es-education.firebaseio.com"
 }
 firebase.initializeApp(firebaseConfig);
-const vocabulary = firebase.database().ref('vocabulary');
+const dictionaryFirebase = firebase.database().ref('dictionary');
 
 /**
  * Action creators for Dictionary - to learn Spanich
@@ -19,45 +19,75 @@ const vocabulary = firebase.database().ref('vocabulary');
 
 export const UPDATE_WORD = 'UPDATE_WORD';
 export const UPDATE_VALUE = 'UPDATE_VALUE';
-export const ADD_NEW_WORD = 'ADD_NEW_WORD';
 export const REMOVE_WORD = 'REMOVE_WORD';
 export const LOAD_FROM_JSON = 'LOAD_FROM_JSON';
-export const POKUS = 'POKUS';
 export const RECEIVE_NEWWORD = 'RECEIVE_NEWWORD';
 
-/*export function addNewWord (newWord) {
-     return {
-        type: ADD_NEW_WORD,
-        newWord
-     }
-}*/
 
-function receiveNewWord(newWord){
+/*--------------------ADD NEW ---------------- */
+/**
+ * přijímá nové doposud nezobrazené slovo z FireBase abychom je mohli zobrazit
+ * 
+ */
+function receiveNewWord( newWord, key){
+    console.log("odpal recieve",  newWord, key);
     return{
         type:RECEIVE_NEWWORD, 
-        payload: newWord
-    }
-}
-function changeWordFb(changed){
-    return{
-        type:CHANGE_WORD, 
-        payload: changed
+        payload: newWord,
+        key
     }
 }
 
-export function subscribeToVocabulary(){
-    return function(dispatch){
-        vocabulary.on('child_added', data => dispatch(receiveNewWord(data.val())));
-        vocabulary.on('child_changed', data => dispatch(changeWordFb(data.val())) );
-    }
-}
-
-
+/**
+ * vklada nove slovo do Firebase, pak se vyvolá 'child_added' a to vyvola receiveNewWord action creator
+ * 
+ */
 export function addNewWord (newWord) {
+    console.log("probehl push");
      return function(){
-         vocabulary.push(newWord);
+        dictionaryFirebase.push(newWord);
      }
 };
+
+
+/*----------------------UPDATE-------------- */
+
+/**
+ * Aktualizace slova ve Firebase
+ * @param {*} changed 
+ */
+export function updateWordFirebase(key,updatedWord){
+    console.log("něco se zmenilo ve FireBase", updatedWord);
+    return function(){
+        dictionaryFirebase.child(key).update(updateWord);
+    }
+     
+}
+
+/**
+ * action creator, ktery zpusoby prekresleni UI aby byla videt zmena ve FN
+ * @param {*} updatedWord 
+ */
+export function updateWord (updatedWord) {
+     return {
+        type: UPDATE_WORD,
+        index:1,
+        updatedWord
+     }
+}
+
+export function subscribeToDictionaryFirebase(){
+    return function(dispatch){
+       /* dictionaryFirebase.on('value', function(snapshot){
+            var content = snapshot.val();
+            dispatch(loadStartDataFirebase(content));
+        });*/
+        dictionaryFirebase.on('child_added', data => dispatch(receiveNewWord(data.val(), data.key)));
+        dictionaryFirebase.on('child_changed', data => dispatch(updateWord(data.val())) );
+    }
+}
+
+
 
 
 export function addWordsFromJSON (arrayOfNewWords) {
@@ -67,13 +97,7 @@ export function addWordsFromJSON (arrayOfNewWords) {
     }
 }
 
-export function updateWord (index, updatedWord) {
-     return {
-        type: UPDATE_WORD,
-        index,
-        updatedWord
-     }
-}
+
 
 export function updateValue (index, name, value) {
      return {

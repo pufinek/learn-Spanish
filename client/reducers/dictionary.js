@@ -19,11 +19,15 @@ function dictionary(state = {}, action) {
         case 'CHANGE_WORD':
             console.log(action.payload);
             return state;
-        case 'ADD_NEW_WORD':
-            return [...state, action.newWord];
         case 'RECEIVE_NEWWORD':
-             return [...state, action.payload];
+            console.log("recieved:", action.payload, action.key);
+            const newRecievedObject = {...state};
+            newRecievedObject[action.key]=action.payload;
+            console.log("novy objekt", newRecievedObject);
+            //return state;
+             return  Object.assign({},state ,newRecievedObject);
         case 'UPDATE_WORD':
+            console.log("reducer / update word");
             return [
                  ...state.slice(0, action.index),
                  action.updatedWord,
@@ -50,7 +54,7 @@ function dictionary(state = {}, action) {
         case 'LOAD_FROM_JSON':
             // return [...state, action.arrayOfNewWords];
               console.log("JSON");
-            return state;
+              return Object.assign({},state, action.payload)
         default:
             return state;
     }

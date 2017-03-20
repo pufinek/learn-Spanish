@@ -18,7 +18,8 @@ class Word extends React.Component{
                     </Link>
                 </div>
                 <span className="meaning" data-language="es"><strong>ES: </strong>{word.meaningES}</span> 
-                <span className="meaning" data-language="cz"><strong>CZ: </strong>{convertArrayToString(word.meaningCZ)}</span>
+                {/*<span className="meaning" data-language="cz"><strong>CZ: </strong>{convertArrayToString(word.meaningCZ)}</span>*/}
+                <span className="meaning" data-language="cz"><strong>CZ: </strong>{word.meaningCZ}</span>
                 <span className="meaning" data-language="en"><strong>EN: </strong>{word.meaningEN}</span> 
 
             </div>

@@ -7,7 +7,7 @@ const Main = React.createClass({
 
  componentWillMount() {
    console.log("nacitam z Firebase");
-   this.props.actions.subscribeToVocabulary();
+   this.props.actions.subscribeToDictionaryFirebase();
  },
 
   render() {

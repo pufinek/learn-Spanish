@@ -1,9 +1,32 @@
 import React from 'react';
 import Word from './Word';
 import ReactPlayer from 'react-player';
-import {convertArrayToString} from '../helpers/dictionary';
+import {convertArrayToString, convertStringToArray} from '../helpers/dictionary';
 
 const WordDetail = React.createClass({
+
+handleChange(e, key){
+    e.preventDefault();
+    console.log("WORD-DETAIL / handleChange")
+    console.log("došlo k uprave slova");
+    const actualWord = this.props.dictionary[i];
+    console.log("upravene slovo: ", actualWord);
+
+    let updatedWord = (     
+        (e.target.name === 'meaningCZ' | e.target.name === 'theme') ?
+            {
+                ...actualWord,
+                [e.target.name]:convertStringToArray(e.target.value)
+            } :
+            {
+                ...actualWord,
+                [e.target.name]:e.target.value
+            } //pokud checkbox
+    )
+    console.log("změna na: ", updatedWord);
+    console.log("i: ", i);
+    this.props.actions.updateWordFirebase(key, updatedWord);
+},
 
   render() {
     const i = this.props.dictionary.findIndex((word)=> word.id == this.props.params.wordId);
@@ -19,7 +42,8 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
 console.log(moreInfoUrl);         
 
     return (
-      <form  key={i} i={i} className="word-detail" onChange={(e) => this.props.actions.updateValue(i,e.target.name, e.target.value )}>
+      /*<form  key={i} i={i} className="word-detail" onChange={(e) => this.props.actions.updateValue(i,e.target.name, e.target.type === 'checkbox' ? e.target.checked : e.target.value )}>*/
+<form  key={i} i={i} className="word-detail" onChange={(e) => this.handleChange(e, i)}>
         <div className="box">
             <div className="word-control">
             <a target="_blank" title="spanish dictionary" href={moreInfoUrl}><span className="lnr lnr-question-circle"></span></a>
@@ -39,13 +63,13 @@ console.log(moreInfoUrl);
         </div>
         <div className="box">
             <div className="row">
-                <label >Lesson:</label>
-                <input type="number" min="1" name="lesson" ref={(input) => this.lesson = (input)} value={word.lesson}/>
+                <label >userFavorite:</label>
+                 <input type="checkbox" name="favorite" ref={(input) => this.favorite = input}  checked={word.favorite}/>
             </div>
 
             <div className="row">
                 <label>Theme:</label>
-                <input type="text" name="theme" ref={(input) => this.theme = (input)} value={word.theme} />
+                <input type="text" name="theme" ref={(input) => this.theme = (input)} value={convertArrayToString(word.theme)} />
             </div>
 
             <div className="row">
