@@ -16,7 +16,7 @@ const Dictionary= React.createClass({
          
             //this.props.dictionary.map((word,i) => <Word {...this.props} key={i} i={i} word={word} />)
             Object.keys(this.props.dictionary)
-                    .map((key => <Word key={key} index={key} word={this.props.dictionary[key]} />))
+                    .map((key => <Word key={key} index={key} actions={this.props.actions} word={this.props.dictionary[key]} />))
         }
 
       </div>

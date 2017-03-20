@@ -32,7 +32,7 @@ const router = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Dictionary}></IndexRoute>
-        <Route path="/view/:wordId" component={WordDetail}></Route>
+        <Route path="/view/:wordKey" component={WordDetail}></Route>
       </Route>
     </Router>
   </Provider>

@@ -10,10 +10,10 @@ class Word extends React.Component{
 
         return(
 
-            <div key={word.key} className="word" >  
+            <div key={this.props.index} className="word" >  
                 <div className="word-control">
                    <ReactPlayer className="spanish-player" url={playerUrl} controls />
-                     <Link to={`/view/${word.id}`}>
+                     <Link to={`/view/${this.props.index}`}>
                         <span className="lnr lnr-cog"></span>
                     </Link>
                 </div>
@@ -21,6 +21,7 @@ class Word extends React.Component{
                 {/*<span className="meaning" data-language="cz"><strong>CZ: </strong>{convertArrayToString(word.meaningCZ)}</span>*/}
                 <span className="meaning" data-language="cz"><strong>CZ: </strong>{word.meaningCZ}</span>
                 <span className="meaning" data-language="en"><strong>EN: </strong>{word.meaningEN}</span> 
+                 <button onClick={(e)=> this.props.actions.removeWordFirebase(this.props.index)}>smazat</button>
 
             </div>
             

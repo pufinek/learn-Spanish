@@ -102,7 +102,7 @@ render(){
 
                 <div className="row">
                     <label title="rod">Typ</label>
-                    <select name="type" ref={(input) => this.type = input}  placeholder="Type" required defaultValue={this.props.settings.types[1]} style={{width: '150px'}} >
+                    <select name="type" ref={(input) => this.type = input}  placeholder="Type" defaultValue={this.props.settings.types[1]} style={{width: '150px'}} >
                         {optionType}
                     </select> 
                 </div>

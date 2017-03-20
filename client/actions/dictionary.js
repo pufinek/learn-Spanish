@@ -18,7 +18,6 @@ const dictionaryFirebase = firebase.database().ref('dictionary');
 
 
 export const UPDATE_WORD = 'UPDATE_WORD';
-export const UPDATE_VALUE = 'UPDATE_VALUE';
 export const REMOVE_WORD = 'REMOVE_WORD';
 export const LOAD_FROM_JSON = 'LOAD_FROM_JSON';
 export const RECEIVE_NEWWORD = 'RECEIVE_NEWWORD';
@@ -30,7 +29,6 @@ export const RECEIVE_NEWWORD = 'RECEIVE_NEWWORD';
  * 
  */
 function receiveNewWord( newWord, key){
-    console.log("odpal recieve",  newWord, key);
     return{
         type:RECEIVE_NEWWORD, 
         payload: newWord,
@@ -43,7 +41,6 @@ function receiveNewWord( newWord, key){
  * 
  */
 export function addNewWord (newWord) {
-    console.log("probehl push");
      return function(){
         dictionaryFirebase.push(newWord);
      }
@@ -57,33 +54,28 @@ export function addNewWord (newWord) {
  * @param {*} changed 
  */
 export function updateWordFirebase(key,updatedWord){
-    console.log("něco se zmenilo ve FireBase", updatedWord);
-    return function(){
-        dictionaryFirebase.child(key).update(updateWord);
-    }
-     
+    var refToChild = dictionaryFirebase.child(key); //path to child in Firebase
+    refToChild.update(updatedWord);
+        
 }
 
 /**
  * action creator, ktery zpusoby prekresleni UI aby byla videt zmena ve FN
  * @param {*} updatedWord 
  */
-export function updateWord (updatedWord) {
+export function updateWord (updatedWord, key) {
      return {
         type: UPDATE_WORD,
-        index:1,
-        updatedWord
+        key,
+        payload:updatedWord
      }
 }
 
 export function subscribeToDictionaryFirebase(){
     return function(dispatch){
-       /* dictionaryFirebase.on('value', function(snapshot){
-            var content = snapshot.val();
-            dispatch(loadStartDataFirebase(content));
-        });*/
         dictionaryFirebase.on('child_added', data => dispatch(receiveNewWord(data.val(), data.key)));
-        dictionaryFirebase.on('child_changed', data => dispatch(updateWord(data.val())) );
+        dictionaryFirebase.on('child_changed', data => dispatch(updateWord(data.val(), data.key)) );
+         dictionaryFirebase.on('child_removed', data => dispatch(removeWord(data.key)) );
     }
 }
 
@@ -98,23 +90,16 @@ export function addWordsFromJSON (arrayOfNewWords) {
 }
 
 
-
-export function updateValue (index, name, value) {
-     return {
-        type: UPDATE_VALUE,
-        index,
-        name, 
-        value
-     }
-}
-
-
-export function removeWord (index) {
+export function removeWord (key) {
      return {
         type: REMOVE_WORD,
-        index
+        key
      }
 };
-/*export function removeWord (index) {
-     return dispatch => Dictionary_Firebase.child(index).remove();
-};*/
+
+export function removeWordFirebase(key){
+    var refToChild = dictionaryFirebase.child(key); //path to child in Firebase
+    refToChild.remove();
+        
+}
+
