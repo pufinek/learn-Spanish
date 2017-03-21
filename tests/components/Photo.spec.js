@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
@@ -36,3 +36,4 @@ describe('Photo Component', function () {
   });
 
 })
+*/

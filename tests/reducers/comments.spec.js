@@ -1,4 +1,4 @@
-import expect from 'expect';
+/*import expect from 'expect';
 import commentsReducer from '../../client/reducers/comments';
 import defaultComments from '../../client/data/comments';
 
@@ -11,7 +11,7 @@ describe('Coments Reducer', function () {
     const expected = {user: author, text: comment};
     
     /* add duplicate function into a handy function since only postId changes */  
-    function addComment(postId) {
+   /* function addComment(postId) {
       const action = { type: 'ADD_COMMENT', author, comment, postId };
       const allComments = commentsReducer(defaultComments, action);
       return allComments[postId];
@@ -59,3 +59,4 @@ describe('Coments Reducer', function () {
 
 
 })
+*/

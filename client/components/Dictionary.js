@@ -1,6 +1,6 @@
 import React from 'react';
 import Word from './Word';
-import Photo from './Photo';
+
 
 import AddNewWord from './AddNewWord';
 

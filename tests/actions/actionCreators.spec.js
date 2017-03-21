@@ -1,4 +1,4 @@
-import expect from 'expect';
+/*import expect from 'expect';
 import { increment, addComment, removeComment } from '../../client/actions/actionCreators.js';
 
 describe('Action Creators', () => {
@@ -53,3 +53,4 @@ describe('Action Creators', () => {
 
 
 })
+*/

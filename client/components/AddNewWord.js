@@ -13,22 +13,19 @@ addWord(e){
         meaningEN: this.en.value,
         meaningES: this.es.value,
         type: this.type.value,
-        //lesson: this.lesson.value,
         theme: convertStringToArray(this.theme.value),
         genus: this.genus.value,
         statistic:{ok:0, show:0},
         favorite:this.favorite.checked,
-        id: Date.now()
     }
-
-    console.log(newWord);
      this.props.actions.addNewWord(newWord);
+     this.addNewWord.reset();
 
 }
 
 
 
-loadJSON(e){
+/*loadJSON(e){
     e.preventDefault();
     let arrayJSON=[];
     console.log(slovicka);
@@ -45,7 +42,6 @@ loadJSON(e){
                 //lesson: this.lesson.value,
                 theme: word.theme,
                 genus: word.genus,
-                id: Date.now()
             }
             if(word.lesson==""|| word.lesson == undefined){
                 newWord.lesson = 0
@@ -53,16 +49,14 @@ loadJSON(e){
             if(word.type==""|| word.type == undefined){
                 newWord.type= "?"
             }
-            arrayJSON.push(newWordTransformed);
+            //arrayJSON.push(newWordTransformed);
 
-            //console.log(newWordTransformed);
-            //this.props.actions.addNewWord(newWordTransformed);
         })
 
 
     
 
-}
+}*/
 
 
 render(){

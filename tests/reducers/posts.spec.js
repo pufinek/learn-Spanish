@@ -1,4 +1,4 @@
-import expect from 'expect';
+/*import expect from 'expect';
 import posts from '../../client/reducers/posts';
 import defaultPosts from '../../client/data/posts';
 
@@ -11,4 +11,4 @@ describe('Posts Reducer', function () {
     expect(actual[index].likes).toEqual(defaultPosts[index].likes + 1);
   });
   
-})
+})*/
