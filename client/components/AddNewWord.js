@@ -1,5 +1,5 @@
 import React from 'react';
-import slovicka from '../SlovickaJSON';
+import slovicka from 'json!../slovickaJSON.json'; //need to install json-loader
 import {convertStringToArray} from '../helpers/dictionary';
 
 
@@ -19,44 +19,23 @@ addWord(e){
         favorite:this.favorite.checked,
     }
      this.props.actions.addNewWord(newWord);
-     this.addNewWord.reset();
+     this.addForm.reset();
 
 }
 
 
 
-/*loadJSON(e){
+loadJSON(e){
     e.preventDefault();
-    let arrayJSON=[];
-    console.log(slovicka);
-    Object
-        .keys(slovicka)
-        .map((word) => function(){
-            console.log(word);
-            let newWordTransformed = {
-                meaningCZ: convertStringToArray(word.cz),
-                meaningEN: word.en,
-                meaningES: word.es,
-                //type: this.type.value,
-
-                //lesson: this.lesson.value,
-                theme: word.theme,
-                genus: word.genus,
-            }
-            if(word.lesson==""|| word.lesson == undefined){
-                newWord.lesson = 0
-            }
-            if(word.type==""|| word.type == undefined){
-                newWord.type= "?"
-            }
-            //arrayJSON.push(newWordTransformed);
-
-        })
-
-
-    
-
-}*/
+    slovicka.forEach(function(element) {
+        let createWordfromJSON = element;
+        createWordfromJSON.meaningCZ = convertStringToArray(element.meaningCZ),
+        createWordfromJSON.theme = convertStringToArray(element.theme),
+        createWordfromJSON.statistic = {ok:0, show:0};
+        createWordfromJSON.favorite = false;
+        this.props.actions.addNewWord(createWordfromJSON);
+    }, this);
+}
 
 
 render(){

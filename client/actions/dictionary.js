@@ -19,7 +19,6 @@ const dictionaryFirebase = firebase.database().ref('dictionary');
 
 export const UPDATE_WORD = 'UPDATE_WORD';
 export const REMOVE_WORD = 'REMOVE_WORD';
-export const LOAD_FROM_JSON = 'LOAD_FROM_JSON';
 export const RECEIVE_NEWWORD = 'RECEIVE_NEWWORD';
 
 
@@ -59,6 +58,20 @@ export function updateWordFirebase(key,updatedWord){
         
 }
 
+/* m2n9 favorite hodnotu ve Firebase / idealne predelat na zmenu libovolne hodnoty */
+export function changeValue(key,word, name, value){
+    console.log("zmena hodnoty",word, name, value);
+    var refToChild = dictionaryFirebase.child(key);
+    let updated = word;
+    updated.favorite = value;
+    refToChild.update(updated);
+    return {
+        type: UPDATE_WORD,
+        key,
+        payload:updated
+     }
+}
+
 /**
  * action creator, ktery zpusoby prekresleni UI aby byla videt zmena ve FN
  * @param {*} updatedWord 
@@ -79,15 +92,6 @@ export function subscribeToDictionaryFirebase(){
     }
 }
 
-
-
-
-export function addWordsFromJSON (arrayOfNewWords) {
-    return {
-        type: LOAD_FROM_JSON,
-        arrayOfNewWords
-    }
-}
 
 
 export function removeWord (key) {

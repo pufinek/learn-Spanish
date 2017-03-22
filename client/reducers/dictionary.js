@@ -27,10 +27,6 @@ function dictionary(state = {}, action) {
          case 'REMOVE_WORD':
             changedState[action.key] = null;
             return Object.assign({},state ,changedState);
-        case 'LOAD_FROM_JSON':
-            // return [...state, action.arrayOfNewWords];
-              console.log("JSON");
-              return Object.assign({},state, action.payload)
         default:
             return state;
     }
