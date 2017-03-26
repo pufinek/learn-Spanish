@@ -8,4 +8,10 @@
 {"meaningCZ":"potěšení, požitel","meaningES":"placer","meaningEN":"","type":"type3","theme":"duolingo","genus":"el"},
 {"meaningCZ":"potěšení je na mé straně","meaningES":"El placer es mío.","meaningEN":"","type":"type4","theme":"duolingo","genus":""},
 {"meaningCZ":"přání; touha","meaningES":"deseo","meaningEN":"","type":"type5","theme":"duolingo","genus":"el"},
-{"meaningCZ":"Nemám náladu na jídlo","meaningES":"No estoy de humor para comer.","meaningEN":"","type":"type1","theme":"duolingo; fraze; 5","genus":""}]
+{"meaningCZ":"Nemám náladu na jídlo","meaningES":"No estoy de humor para comer.","meaningEN":"","type":"type1","theme":"duolingo; fraze; 5","genus":""},
+{"meaningCZ":"U mě nebo u tebe?","meaningES":"En tu casa o en la mía", "meaningEN":"Your place or mine", "type":"type10", "theme":"flirt", "genus":""},
+{"meaningCZ":"Zatančíš si semnou?; Smím prosit?","meaningES":"Quieres bailar conmigo", "meaningEN":"Do you want to dance with me", "type":"type10", "theme":"flirt", "genus":""},
+{"meaningCZ":"Vyjdeš si semnou?","meaningES":"Quieres salir conmigo", "meaningEN":"Do you want to go out with me", "type":"type10", "theme":"flirt", "genus":""},
+{"meaningCZ":"Velmi se mi líbíš","meaningES":"Me gustas mucho", "meaningEN":"I like you very much", "type":"type10", "theme":"flirt", "genus":""}
+
+]

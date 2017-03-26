@@ -7,11 +7,7 @@ const WordDetail = React.createClass({
 
 handleChange(e, key){
     e.preventDefault();
-    console.clear();
-    console.log("WORD-DETAIL / handleChange")
-    console.log("došlo k uprave slova");
     const actualWord = this.props.dictionary[key];
-    console.log("upravene slovo: ", actualWord);
 
     /*let updatedWord = (     
         (e.target.name === 'meaningCZ' | e.target.name === 'theme') ?
@@ -40,9 +36,6 @@ handleChange(e, key){
                 ...actualWord,
                 [e.target.name]:processValue(e.target)
         }; 
-
-   
-
 
     console.log("změna na: ", updatedWord);
     console.log("key: ", key);
@@ -86,7 +79,7 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
         <div className="box">
             <div className="row">
                 <label >userFavorite:</label>
-                 <input type="checkbox" name="favorite" ref={(input) => this.favorite = input}  checked={word.favorite}/>
+                 <input type="checkbox" name="favorite" ref={(input) => this.favorite = input}  checked={word.favorite} />
             </div>
 
             <div className="row">

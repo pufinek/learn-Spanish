@@ -1,0 +1,62 @@
+body {
+  background: #fafafa;
+  font-size: 13px;
+}
+.dictionary-grid,
+.word-detail {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.word,
+.box {
+  flex-basis: calc(46%);
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 4rem 2rem 2rem;
+  border: 1px solid lightgray;
+  background: white;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.03);
+  position: relative;
+  font-size: 13px;
+}
+.meaning {
+  display: block;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0;
+}
+.meaning strong {
+  padding-right: 20px;
+}
+.lnr,
+.fa {
+  font-size: 24px;
+  padding-right: 15px;
+  text-decoration: none;
+  line-height: 30px;
+  color: gray;
+}
+.lnr:hover,
+.fa:hover {
+  color: #125688;
+}
+.word .word-control {
+  position: absolute;
+  top: 15px;
+  display: block;
+  float: none;
+  width: 100%;
+  left: 0;
+  padding: 0 15px;
+}
+.word .favorite input[type="checkbox"] {
+  display: none;
+}
+.word .favorite input[type="checkbox"]:checked + span {
+  color: #125688;
+}
+.word .favorite input[type="checkbox"]:checked + span:before {
+  content: '\f005';
+}
