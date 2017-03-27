@@ -16,6 +16,7 @@ import WordDetail from './components/WordDetail';
 
 /* Import CSS */
 import css from  './styles/style.styl';
+import css2 from  './styles/core.less';
 
 /* Import our data store */
 import store, { history } from './store';

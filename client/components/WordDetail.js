@@ -79,7 +79,7 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
         <div className="box">
             <div className="row">
                 <label >userFavorite:</label>
-                 <input type="checkbox" name="favorite" ref={(input) => this.favorite = input}  checked={word.favorite} />
+                 <input type="checkbox" name="favorite" ref={(input) => this.favorite = input} defaultChecked={word.favorite} />
             </div>
 
             <div className="row">
