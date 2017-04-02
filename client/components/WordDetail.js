@@ -2,6 +2,7 @@ import React from 'react';
 import Word from './Word';
 import ReactPlayer from 'react-player';
 import {convertArrayToString, convertStringToArray} from '../helpers/dictionary';
+import TextField from 'material-ui/TextField';
 
 const WordDetail = React.createClass({
 
@@ -65,26 +66,30 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
             </div>
             <div className="row">
                 <label >ES:</label>
-                <input type="text" name="meaningES" ref={(input) => this.meaningES = (input)} defaultValue={word.meaningES}/>
+               <TextField
+                    hintText="ES:" 
+                     name="meaningES"
+                    ref={(input) => this.meaningES = (input)} defaultValue={word.meaningES} />
+                {/*<input type="text" name="meaningES" ref={(input) => this.meaningES = (input)} defaultValue={word.meaningES}/>*/}
             </div>
             <div className="row">
                 <label >CZ:</label>
-                <input type="text" name="meaningCZ" placeholder="oddělit významy ; " ref={(input) => this.meaningCZ = (input)} defaultValue={convertArrayToString(word.meaningCZ)}/>
+                <TextField name="meaningCZ" hintText="oddělit významy ; " ref={(input) => this.meaningCZ = (input)} defaultValue={convertArrayToString(word.meaningCZ)}/>
             </div>
             <div className="row">
                 <label >EN:</label>
-                <input type="text" name="meaningEN" ref={(input) => this.meaningEN = (input)} defaultValue={word.meaningEN}/>
+                <TextField name="meaningEN" ref={(input) => this.meaningEN = (input)} defaultValue={word.meaningEN}/>
             </div>
         </div>
         <div className="box">
-            <div className="row">
+           {/* <div className="row">
                 <label >userFavorite:</label>
                  <input type="checkbox" name="favorite" ref={(input) => this.favorite = input} defaultChecked={word.favorite} />
-            </div>
+            </div>*/}
 
             <div className="row">
                 <label>Theme:</label>
-                <input type="text" name="theme" ref={(input) => this.theme = (input)} defaultValue={convertArrayToString(word.theme)} />
+                <TextField name="theme" ref={(input) => this.theme = (input)} defaultValue={convertArrayToString(word.theme)} />
             </div>
 
             <div className="row">
@@ -102,11 +107,7 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
                     <option value="la">la</option>
                 </select>                
             </div>
-
-            <div className="row">
-               
-            </div>
-              
+             
             
         </div>
         

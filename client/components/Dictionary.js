@@ -1,5 +1,6 @@
 import React from 'react';
 import Word from './Word';
+import Filtr from './Filtr';
 
 
 import AddNewWord from './AddNewWord';
@@ -12,6 +13,8 @@ const Dictionary= React.createClass({
 
       <div className="dictionary-grid">
         <AddNewWord settings={this.props.settings} actions={this.props.actions}/>
+
+        <div className="filtr" style={{display:'block', width:'100%'}}>Filtr: <Filtr /></div>
         {
          
             //this.props.dictionary.map((word,i) => <Word {...this.props} key={i} i={i} word={word} />)

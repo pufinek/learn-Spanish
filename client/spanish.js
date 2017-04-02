@@ -13,6 +13,7 @@ import 'babel-polyfill';
 import App from './components/App';
 import Dictionary from './components/Dictionary';
 import WordDetail from './components/WordDetail';
+import Testing from './components/Tests/Testing';
 
 /* Import CSS */
 import css from  './styles/style.styl';
@@ -32,6 +33,7 @@ const router = (
       <Route path="/" component={App}>
         <IndexRoute component={Dictionary}></IndexRoute>
         <Route path="/view/:wordKey" component={WordDetail}></Route>
+        <Route path="/tests/:testKey" component={Testing}></Route>
       </Route>
     </Router>
   </Provider>

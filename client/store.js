@@ -53,36 +53,6 @@ store.subscribe(() => {
 })
 
 
-console.log("a", codeString("a", true, 1), "codeString(a, true, 1)");
-console.log("a", codeString("a", false, 1), "codeString(a, false, 1)");
-console.log("a", codeString("a", true, 2), "codeString(a, true, 2)");
-console.log("a", codeString("a", false, 2), "codeString(a, false, 2)");
-console.log();
-console.log("ab", codeString("ab", true, 1), "codeString(ab, true, 1)");
-console.log("ab", codeString("ab", false, 1), "codeString(ab, false, 1)");
-console.log("ab", codeString("ab", true, 2), "codeString(ab, true, 2)");
-console.log("ab", codeString("ab", false, 2), "codeString(ab, false, 2)");
-console.log();
-console.log("abc", codeString("abc", true, 1), "codeString(abc, true, 1)");
-console.log("abc", codeString("abc", false, 1), "codeString(abc, false, 1)");
-console.log("abc", codeString("abc", true, 2), "codeString(abc, true, 2)");
-console.log("abc", codeString("abc", false, 2), "codeString(abc, false, 2)");
-console.log();
-console.log("abcd", codeString("abcd", true, 1), "codeString(abcd, true, 1)");
-console.log("abcd", codeString("abcd", false, 1), "codeString(abcd, false, 1)");
-console.log("abcd", codeString("abcd", true, 2), "codeString(abcd, true, 2)");
-console.log("abcd", codeString("abcd", false, 2), "codeString(abcd, false, 2)");
-console.log();
-console.log("abcde", codeString("abcde", true, 1), "codeString(abcde, true, 1)");
-console.log("abcde", codeString("abcde", false, 1), "codeString(abcde, false, 1)");
-console.log("abcde", codeString("abcde", true, 2), "codeString(abcde, true, 2)");
-console.log("abcde", codeString("abcde", false, 2), "codeString(abcde, false, 2)");
-console.log();
-console.log("abcdefghij", codeString("abcdefghij", false, 1), "codeString(abcdefghij, false, 1)");
-console.log("abcdefghij", codeString("abcdefghij", false, 2), "codeString(abcdefghij, false, 2)");
-console.log("abcdefghij", codeString("abcdefghij", true, 2), "codeString(abcdefghij, true, 2)");
-
-
 /*store.dispatch({type:'ADD_NEW_WORD', newWord:pokusWord});
 store.dispatch({type:'REMOVE_WORD', index:3 });
 store.dispatch({type:'UPDATE_WORD', index:1, updatedWord:pokusWord })*/

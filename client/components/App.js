@@ -1,6 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/dictionary';
+import * as actionTesting from '../actions/testing';
+
 
 //import base from '../base';
 /*
@@ -54,7 +56,7 @@ function mapStateToProps(state) {
 */
 
 export function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actionCreators, dispatch) }
+  return { actions: bindActionCreators(actionCreators, dispatch), actionsTests: bindActionCreators(actionTesting, dispatch)  }
 }
 
 

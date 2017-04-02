@@ -15,9 +15,11 @@ import { routerReducer } from 'react-router-redux'; // we need this for react-ro
 //import comments from './comments';
 import dictionary from './dictionary';
 import settings from './settings';
+import testing from './testing';
+
 
 
 // Combine all our reducers togeher
-const rootReducer = combineReducers({ dictionary,settings, routing: routerReducer });
+const rootReducer = combineReducers({ dictionary,settings,testing, routing: routerReducer });
 
 export default rootReducer;

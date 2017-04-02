@@ -1,6 +1,8 @@
 import React from 'react';
 import slovicka from 'json!../slovickaJSON.json'; //need to install json-loader
 import {convertStringToArray} from '../helpers/dictionary';
+import TextField from 'material-ui/TextField';
+import Checkbox from 'material-ui/Checkbox';
 
 
 class AddNewWord extends React.Component{
@@ -53,24 +55,30 @@ render(){
             <form ref={(input) => this.addForm = (input)} className="add-form" onSubmit={(e) => this.addWord(e)}>
                 <div className="row">
                     <label htmlFor="es">Španělsky (ES):</label>
-                    <input type="text" required ref={(input) => this.es = input} id="es"  defaultValue="" />
+                    <TextField required ref={(input) => this.es = input} id="es"  defaultValue="" />
                 </div>
                 <div className="row">
                     <label htmlFor="cz">Česky (CZ):</label>
-                    <input type="text" required ref={(input) => this.cz = input} id="cz" placeholder="významy odděl STŘEDNÍKEM"  defaultValue="" />
+                    <TextField required ref={(input) => this.cz = input} id="cz" hintText="významy odděl STŘEDNÍKEM"  defaultValue="" />
                 </div>
                 <div className="row">
                     <label htmlFor="en">Anglicky (EN):</label>
-                    <input type="text" ref={(input) => this.en = input} id="en"  defaultValue=""/>
+                     <TextField ref={(input) => this.en = input} id="en"  defaultValue=""/>
                 </div>
                 <br /><br />
                 <div className="row">
                     <label htmlFor="theme">Téma:</label>
-                    <input type="text" ref={(input) => this.theme = input} id="theme" placeholder="témata odděl STŘEDNÍKEM"  defaultValue=""/>
+                     <TextField ref={(input) => this.theme = input} id="theme" hintText="témata odděl STŘEDNÍKEM"  defaultValue=""/>
                 </div>
                 <div className="row">
-                    <label title="favorite">userFavorite</label>
-                    <input type="checkbox" name="favorite" ref={(input) => this.favorite = input} style={{width: '50px'}} />
+                     <Checkbox
+                        label="Obtížné?"
+                        labelPosition="left"
+                        style={{width: '50px'}}
+                        name="favorite" ref={(input) => this.favorite = input}
+                        />
+                   {/* <label title="favorite">userFavorite</label>
+                    <input type="checkbox" name="favorite" ref={(input) => this.favorite = input} style={{width: '50px'}} />*/}
                 </div>
 
                 <div className="row">
