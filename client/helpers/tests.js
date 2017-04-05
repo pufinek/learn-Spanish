@@ -38,3 +38,14 @@ export function compareArrays(array1, array2) {
         }
         return true;
 }
+
+/* */
+export function isValueInArray(array, value) {
+        if (isNaN(array)){return false};
+        let index = array.findIndex(function(element){
+                    return element == value;
+            });
+        console.log("index hledané hodnoty:", index);
+        if(index!=-1){return true}
+        return false;
+}

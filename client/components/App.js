@@ -38,15 +38,11 @@ function mapStateToProps(state) {
     //posts: state.posts,
     //comments : state.comments,
     dictionary: state.dictionary,
-    settings:state.settings
+    settings:state.settings,
+    testing:state.testing
   };
 }
- /*componentWillMount(){
-        this.ref=base.syncState(`vocabulary`, {
-            context: this,
-            state:'vocabulary'
-        });
- }*/
+
 
 
 

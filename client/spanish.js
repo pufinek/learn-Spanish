@@ -14,6 +14,7 @@ import App from './components/App';
 import Dictionary from './components/Dictionary';
 import WordDetail from './components/WordDetail';
 import Testing from './components/Tests/Testing';
+import CompilePhrase from './components/Tests/CompilePhrase';
 
 /* Import CSS */
 import css from  './styles/style.styl';
@@ -33,7 +34,8 @@ const router = (
       <Route path="/" component={App}>
         <IndexRoute component={Dictionary}></IndexRoute>
         <Route path="/view/:wordKey" component={WordDetail}></Route>
-        <Route path="/tests/:testKey" component={Testing}></Route>
+         <Route path="/tests" component={Testing}></Route>
+        <Route path="/tests/:testId" component={CompilePhrase}></Route>
       </Route>
     </Router>
   </Provider>
