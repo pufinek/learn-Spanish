@@ -2,7 +2,6 @@ import React from 'react';
 import Word from './Word';
 import ReactPlayer from 'react-player';
 import {convertArrayToString, convertStringToArray} from '../helpers/dictionary';
-import TextField from 'material-ui/TextField';
 
 const WordDetail = React.createClass({
 
@@ -66,19 +65,19 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
             </div>
             <div className="row">
                 <label >ES:</label>
-               <TextField
-                    hintText="ES:" 
-                     name="meaningES"
+               <input type="text"
+                    placeholder="ES:" 
+                    name="meaningES"
                     ref={(input) => this.meaningES = (input)} defaultValue={word.meaningES} />
                 {/*<input type="text" name="meaningES" ref={(input) => this.meaningES = (input)} defaultValue={word.meaningES}/>*/}
             </div>
             <div className="row">
                 <label >CZ:</label>
-                <TextField name="meaningCZ" hintText="oddělit významy ; " ref={(input) => this.meaningCZ = (input)} defaultValue={convertArrayToString(word.meaningCZ)}/>
+                <input type="text" name="meaningCZ" placeholder="oddělit významy ; " ref={(input) => this.meaningCZ = (input)} defaultValue={convertArrayToString(word.meaningCZ)}/>
             </div>
             <div className="row">
                 <label >EN:</label>
-                <TextField name="meaningEN" ref={(input) => this.meaningEN = (input)} defaultValue={word.meaningEN}/>
+                <input type="text" name="meaningEN" ref={(input) => this.meaningEN = (input)} defaultValue={word.meaningEN}/>
             </div>
         </div>
         <div className="box">
@@ -89,7 +88,7 @@ const moreInfoUrl = "http://www.spanishdict.com/conjugate/"+word.meaningES;
 
             <div className="row">
                 <label>Theme:</label>
-                <TextField name="theme" ref={(input) => this.theme = (input)} defaultValue={convertArrayToString(word.theme)} />
+                <input type="text" name="theme" ref={(input) => this.theme = (input)} defaultValue={convertArrayToString(word.theme)} />
             </div>
 
             <div className="row">

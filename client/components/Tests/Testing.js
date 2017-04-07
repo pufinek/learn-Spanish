@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CompilePhrase from './CompilePhrase';
+import OfferOtherWords from './OfferOtherWords';
 
 
 const Testing = React.createClass({ 
@@ -15,7 +16,10 @@ const Testing = React.createClass({
           {/*<Link to={{pathname:`/tests/${testId}`, phrase:phrase}}  >
               Seskládání fráze
           </Link>*/}
-            <CompilePhrase {...this.props} phrase={phrase} />        
+            <CompilePhrase {...this.props} phrase={phrase} />     
+            <hr />
+            <hr />
+            <OfferOtherWords {...this.props} showKey="-KfpavMOqCy7JPldA9ZU"/>   
          
           
       </div>
